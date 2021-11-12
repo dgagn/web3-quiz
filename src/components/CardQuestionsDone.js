@@ -2,7 +2,7 @@ import {Button, Card} from 'react-bootstrap';
 import React from 'react';
 import {useQuestion} from '../question-context';
 
-export function QuestionsDisplayDone() {
+export function CardQuestionsDone() {
   const {state, dispatch} = useQuestion();
   return (
     <Card className="text-center mx-auto container">

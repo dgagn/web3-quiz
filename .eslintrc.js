@@ -21,5 +21,8 @@ module.exports = {
   rules: {
     indent: 0,
     'require-jsdoc': 1,
+    curly: 0,
+    'react/prop-types': 0,
+    semi: 1,
   },
 };
