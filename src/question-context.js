@@ -3,6 +3,12 @@ import {questions} from './data/questions';
 
 const QuestionContext = React.createContext(undefined);
 
+const initialValues = {
+  questions,
+  current: 0,
+  answers: 0,
+};
+
 function questionReducer(state, {payload, type}) {
   switch (type) {
     case 'answer_question': {
@@ -16,11 +22,7 @@ function questionReducer(state, {payload, type}) {
       };
     }
     case 'restart': {
-      return {
-        questions: questions,
-        current: 0,
-        answers: 0,
-      };
+      return initialValues;
     }
     default: {
       throw new Error(`Unhandled action type: ${type}`);
@@ -31,11 +33,7 @@ function questionReducer(state, {payload, type}) {
 function QuestionProvider({children}) {
   const [state, dispatch] = React.useReducer(
     questionReducer,
-    {
-      questions,
-      current: 0,
-      answers: 0,
-    },
+    initialValues,
     undefined,
   );
   const value = {state, dispatch};
