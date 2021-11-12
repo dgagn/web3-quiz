@@ -1,19 +1,24 @@
 import {Button, Card, ProgressBar} from 'react-bootstrap';
-import React, {useMemo} from 'react';
+import React from 'react';
 import {useQuestion} from '../question-context';
 
+/**
+ * The main card that displays the questions
+ * to the user.
+ * @return {JSX.Element} a react component with `div`
+ * @constructor
+ */
 export function CardQuestion() {
-  const {state, dispatch} = useQuestion();
-
-  const currentQuestion = useMemo(() => {
-    return state.questions[state.current];
-  }, [state.questions, state.current]);
+  const {
+    state: {current, questions},
+    dispatch,
+  } = useQuestion();
 
   return (
     <Card className="text-center mx-auto container">
-      <Card.Header>Question #{state.current + 1}</Card.Header>
+      <Card.Header>Question #{current + 1}</Card.Header>
       <Card.Body>
-        <div className="pt-2">{currentQuestion.question}</div>
+        <div className="pt-2">{questions[current].question}</div>
         <div className="pt-4 d-flex gap-2 justify-content-center">
           <Button
             onClick={() => dispatch({type: 'answer_question', payload: true})}
@@ -30,7 +35,7 @@ export function CardQuestion() {
         </div>
       </Card.Body>
       <Card.Footer>
-        <ProgressBar now={~~((state.current / state.questions.length) * 100)} />
+        <ProgressBar now={~~((current / questions.length) * 100)} />
       </Card.Footer>
     </Card>
   );

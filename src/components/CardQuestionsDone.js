@@ -2,6 +2,12 @@ import {Button, Card} from 'react-bootstrap';
 import React from 'react';
 import {useQuestion} from '../question-context';
 
+/**
+ * The `Card` component when the questions is
+ * done.
+ * @return {JSX.Element} a react component with `div`
+ * @constructor
+ */
 export function CardQuestionsDone() {
   const {state, dispatch} = useQuestion();
   return (

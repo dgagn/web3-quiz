@@ -1,3 +1,6 @@
+/**
+ * The questions for the quiz game.
+ */
 export const questions = [
   {
     id: 1,

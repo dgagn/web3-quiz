@@ -3,12 +3,18 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   extends: [
+    'google',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended',
-    'google',
+    'prettier',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -19,10 +25,5 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    indent: 0,
-    'require-jsdoc': 1,
-    curly: 0,
-    'react/prop-types': 0,
-    semi: 1,
   },
 };
